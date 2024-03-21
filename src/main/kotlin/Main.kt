@@ -34,7 +34,18 @@ fun main() {
     println(LabFiveTaskOne(numTwoTest))
     println("<==============================>")
     println("Задание №2")
-    LabFiveTaskTwo(253)
+    var timeOne: Int = 1
+    var timeTwo: Int = 2
+    var timeThree: Int = 5
+    println(timeOne.LabFiveTaskTwo())
+    println(timeTwo.LabFiveTaskTwo())
+    println(timeThree.LabFiveTaskTwo())
+    println("<==============================>")
+    println("Задание №3")
+    LabFiveTaskThree(100, 30)
+    println("<==============================>")
+    println("Задание №4")
+
 }
 
 
@@ -209,10 +220,24 @@ fun LabFiveTaskOne(num: Int): String {
     }
 }
 
-fun LabFiveTaskTwo(num: Int){
-    var txt: String = num.toString()
+fun Int.LabFiveTaskTwo() : String{
+    var txt: String = this.toString()
+    when(txt.last()){
+        '1' ->  return "$this год"
+        '2','3','4' -> return "$this года"
+        '5','6','7','8','9','0' -> return "$this лет"
+    }
+    return ""
+}
 
-    println(txt.last())
-//        if (txt.last() ))
-
+fun LabFiveTaskThree(price: Int, sale: Int){
+    var priceDouble = price.toDouble()
+    var saleDouble = sale.toDouble()
+    if (saleDouble <= 100) {
+        var result = priceDouble - ((priceDouble / 100) * saleDouble)
+        val roundUp = String.format("%.2f", result)
+        println(roundUp)
+    }else{
+        println("Скидка не может быть больше 100%")
+    }
 }
