@@ -45,7 +45,7 @@ fun main() {
     LabFiveTaskThree(100, 30)
     println("<==============================>")
     println("Задание №4")
-
+    LabFiveTaskFour("Создайте функцию, которая принимает строку и подсчитывает количество слов в этой строке.")
 }
 
 
@@ -240,4 +240,10 @@ fun LabFiveTaskThree(price: Int, sale: Int){
     }else{
         println("Скидка не может быть больше 100%")
     }
+}
+
+fun LabFiveTaskFour(str: String): Int {
+    val count = Regex("""(\s+|(\r\n|\r|\n))""").findAll(str.trim()).count() + 1
+    println("Количество слов в придложении: $count")
+    return count
 }
